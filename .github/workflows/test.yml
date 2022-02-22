@@ -8,7 +8,7 @@ jobs:
       - run: sudo sed -i 's/:,/:runner name,/' /etc/passwd
       - run: cat /etc/passwd
       - run: ls -l /var/run/utmp
-      - run: od -c /var/run/utmp
+      - run: utmpdump /var/run/utmp
       - run: pinky
       - run: whoami
       - run: echo "$USER"
