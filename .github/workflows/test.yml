@@ -10,4 +10,5 @@ jobs:
       - run: cat /etc/passwd
       - run: pinky
       - run: whoami
-      - run: pinky -l $(whoami)
+      - run: echo "$USER"
+      - run: pinky -l "$USER"
