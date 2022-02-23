@@ -4,15 +4,16 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: cat /etc/passwd
-      - run: sudo sed -i 's/:,/:runner name,/' /etc/passwd
-      - run: cat /etc/passwd
+      - run: whoami
+      - run: pinky
+      - run: pinky -l "$USER"
       - run: utmpdump /var/run/utmp
       - run: (utmpdump /var/run/utmp ; echo '[7] [999999] [tty2] [runner] [tty2] [] [0.0.0.0] [2022-02-22T22:22:22,222222+00:00]') | sudo utmpdump -r -o /var/run/utmp
       - run: utmpdump /var/run/utmp
       - run: pinky
-      - run: whoami
-      - run: echo "$USER"
       - run: pinky -l "$USER"
-      - run: pinky -l runneradmin
-
+      - run: cat /etc/passwd
+      - run: sudo sed -i 's/:,/:runner name,/' /etc/passwd
+      - run: cat /etc/passwd
+      - run: pinky
+      - run: pinky -l "$USER"
