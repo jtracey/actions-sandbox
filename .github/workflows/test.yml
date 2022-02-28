@@ -17,3 +17,9 @@ jobs:
       - run: cat /etc/passwd
       - run: pinky
       - run: pinky -l "$USER"
+      - run: touch /home/runner/.project
+      - run: pinky
+      - run: pinky -l "$USER"
+      - run: echo "foo" > /home/runner/.plan
+      - run: pinky
+      - run: pinky -l "$USER"
