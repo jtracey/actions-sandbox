@@ -5,21 +5,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: whoami
+      - run: users
+      - run: who
       - run: pinky
       - run: pinky -l "$USER"
       - run: utmpdump /var/run/utmp
       - run: (utmpdump /var/run/utmp ; echo '[7] [999999] [tty2] [runner] [tty2] [] [0.0.0.0] [2022-02-22T22:22:22,222222+00:00]') | sudo utmpdump -r -o /var/run/utmp
       - run: utmpdump /var/run/utmp
+      - run: users
+      - run: who
       - run: pinky
       - run: pinky -l "$USER"
       - run: cat /etc/passwd
       - run: sudo sed -i 's/:,/:runner name,/' /etc/passwd
       - run: cat /etc/passwd
+      - run: users
+      - run: who
       - run: pinky
       - run: pinky -l "$USER"
       - run: touch /home/runner/.project
+      - run: users
+      - run: who
       - run: pinky
       - run: pinky -l "$USER"
       - run: echo "foo" > /home/runner/.plan
+      - run: users
+      - run: who
       - run: pinky
       - run: pinky -l "$USER"
