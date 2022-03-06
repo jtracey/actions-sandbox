@@ -12,7 +12,7 @@ jobs:
       - run: utmpdump /var/run/utmp
       - run: (utmpdump /var/run/utmp ; echo '[7] [999999] [tty2] [runner] [tty2] [] [0.0.0.0] [2022-02-22T22:22:22,222222+00:00]') | sudo utmpdump -r -o /var/run/utmp
       - run: utmpdump /var/run/utmp
-      - run: users
+      - run: strace users
       - run: who
       - run: pinky
       - run: pinky -l "$USER"
