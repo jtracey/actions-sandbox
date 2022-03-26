@@ -1,3 +1,5 @@
+name: android
+on: [push]
 jobs:
   test:
     runs-on: macos-latest
