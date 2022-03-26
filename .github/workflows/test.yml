@@ -33,3 +33,4 @@ jobs:
       - run: who
       - run: pinky
       - run: pinky -l "$USER"
+      - run: pwd && ls -la
