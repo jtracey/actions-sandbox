@@ -31,7 +31,7 @@ jobs:
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
           script: |
-            adb shell touch /sdcard/foo
+            adb shell ls /sdcard/
             echo "Generated AVD snapshot for caching."
 
       - name: run tests
