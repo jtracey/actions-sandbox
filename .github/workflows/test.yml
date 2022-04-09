@@ -36,7 +36,6 @@ jobs:
       - run: pwd && ls -la
   test_freebsd:
     name: Tests/FreeBSD test suite
-    needs: [ min_version, deps ]
     runs-on: macos-10.15
     strategy:
       fail-fast: false
