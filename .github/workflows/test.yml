@@ -52,4 +52,5 @@ jobs:
         prepare: pkg install -y curl gmake sudo
         run: |
           ls -l /proc
-          ls -l /proc/*
+          ls -l /proc/version
+          cat /proc/version
