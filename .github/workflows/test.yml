@@ -34,3 +34,23 @@ jobs:
       - run: pinky
       - run: pinky -l "$USER"
       - run: pwd && ls -la
+  test_freebsd:
+    name: Tests/FreeBSD test suite
+    needs: [ min_version, deps ]
+    runs-on: macos-10.15
+    strategy:
+      fail-fast: false
+    env:
+      mem: 2048
+    steps:
+    - uses: actions/checkout@v2
+    - uses: Swatinem/rust-cache@v1
+    - name: Prepare, build and test
+      uses: vmactions/freebsd-vm@v0.1.5
+      with:
+        usesh: true
+        # sync: sshfs
+        prepare: pkg install -y curl gmake sudo
+        run: |
+          ls -l /proc
+          ls -l /proc/*
