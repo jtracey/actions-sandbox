@@ -1,0 +1,13 @@
+general:
+  stop_time: 10s
+
+network:
+  graph:
+    type: 1_gbit_switch
+
+hosts:
+  host0:
+    network_node_id: 0
+    processes:
+    - path: shadow-bug
+      start_time: 5s
