@@ -6,4 +6,4 @@ jobs:
     steps:
       - run: touch file.ro
       - run: chmod a-w file.ro
-      - run: tee -p </dev/null file.ro ; echo $?
+      - run: echo $(tee -p </dev/null file.ro; echo $?)
