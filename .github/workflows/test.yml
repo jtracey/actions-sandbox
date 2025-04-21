@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: touch file.ro
-      - run: chmod a-w
+      - run: chmod a-w file.ro
       - run: tee -p </dev/null file.ro
