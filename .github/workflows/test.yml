@@ -2,55 +2,8 @@ name: test
 on: [push]
 jobs:
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - run: whoami
-      - run: users
-      - run: who
-      - run: pinky
-      - run: pinky -l "$USER"
-      - run: utmpdump /var/run/utmp
-      - run: (utmpdump /var/run/utmp ; echo '[7] [999999] [tty2] [runner] [tty2] [] [0.0.0.0] [2022-02-22T22:22:22,222222+00:00]') | sudo utmpdump -r -o /var/run/utmp
-      - run: utmpdump /var/run/utmp
-      - run: strace users
-      - run: who
-      - run: pinky
-      - run: pinky -l "$USER"
-      - run: cat /etc/passwd
-      - run: sudo sed -i 's/:,/:runner name,/' /etc/passwd
-      - run: cat /etc/passwd
-      - run: users
-      - run: who
-      - run: pinky
-      - run: pinky -l "$USER"
-      - run: touch /home/runner/.project
-      - run: users
-      - run: who
-      - run: pinky
-      - run: pinky -l "$USER"
-      - run: echo "foo" > /home/runner/.plan
-      - run: users
-      - run: who
-      - run: pinky
-      - run: pinky -l "$USER"
-      - run: pwd && ls -la
-  test_freebsd:
-    name: Tests/FreeBSD test suite
-    runs-on: macos-10.15
-    strategy:
-      fail-fast: false
-    env:
-      mem: 2048
-    steps:
-    - uses: actions/checkout@v2
-    - uses: Swatinem/rust-cache@v1
-    - name: Prepare, build and test
-      uses: vmactions/freebsd-vm@v0.1.5
-      with:
-        usesh: true
-        # sync: sshfs
-        prepare: pkg install -y curl gmake sudo
-        run: |
-          ls -l /proc
-          ls -l /proc/version
-          cat /proc/version
+      - run: touch file.ro
+      - run: chmod a-w file.ro
+      - run: echo $(tee -p </dev/null file.ro; echo $?)
